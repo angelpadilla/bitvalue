@@ -4,10 +4,16 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "git": "git add . && git commit -m 'Ultimos cambios' && git push origin master",
+    "build": "vue-cli-service build && touch dist/_redirects && echo '/* /index.html 200' > dist/_redirects",
+    "web-test": "npm run build && netlify deploy",
+    "pro": "npm run build && netlify deploy -p",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "accounting-js": "^1.1.1",
+    "axios": "^0.19.2",
+    "bulma": "^0.8.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6"
