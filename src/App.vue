@@ -1,33 +1,39 @@
 <template>
   <div id="app">
     <!-- Default component -->
-    <Header />
-    
+    <AppHeader />
+
     <!-- Components from router -->
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Header from '@/components/Header.vue'
+import AppHeader from "@/components/Header.vue";
 
 export default {
   components: {
-    Header
-  }
-}
+    AppHeader,
+  },
+  methods: {
+    get_date(val) {
+      let ddd = new Date(val);
+
+      return `${ddd.getHours()}:${ddd.getMinutes()}:${ddd.getSeconds()}`;
+    },
+  },
+};
 </script>
 
-
-
-
 <style lang="scss">
+body {
+  background: hsl(0, 0%, 96%);
+}
 
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 </style>

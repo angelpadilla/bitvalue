@@ -14,6 +14,17 @@ const routes = [
     name: 'About',
     component: () => import('../components/About.vue')
   },
+  {
+    path: '/rates',
+    name: 'Rates',
+    component: () => import('../components/Rates.vue')
+  },
+  {
+    path: '/crypto/:currency',
+    name: 'Singlecrypto',
+    props: true,
+    component: () => import('../components/Singlecrypto.vue')
+  },
   {path: '*', redirect: '/'}
 ]
 

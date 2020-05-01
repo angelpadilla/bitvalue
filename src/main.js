@@ -17,6 +17,14 @@ Vue.filter('format_number', val => {
 })
 
 
+Vue.filter('format_string_to_uppcercase', string => {
+  // string.replace(/-/g, ' ')
+  // string[0].toUpperCase() + string.slice(1);
+  // let new_string = string[0].toUpperCase() + string.slice(1)
+  return string.replace(/-/g, ' ')
+})
+
+
 
 
 new Vue({

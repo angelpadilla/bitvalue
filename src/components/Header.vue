@@ -6,7 +6,7 @@
                 <img src="../assets/logo.png">
               </a>
 
-              <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+              <a role="button" class="navbar-burger burger is-active" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
@@ -17,7 +17,7 @@
               <div class="navbar-start">
 
                 <router-link :to="{name: 'Home'}" class="navbar-item">Criptomonedas</router-link>
-                <router-link to="/about" class="navbar-item">Tipos de cambio</router-link>
+                <router-link to="/rates" class="navbar-item">Tipos de cambio</router-link>
 
                
 
@@ -27,9 +27,6 @@
                   </a>
 
                   <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                      Nosotros
-                    </a>
                     <a class="navbar-item">
                       Contacto
                     </a>
