@@ -8,22 +8,29 @@
 
 // // Update Bulma's global variables
 
-// $grey-dark: $brown;
-// $grey-light: $beige-light;
-// $primary: $purple;
-// $link: $pink;
+$dark-bg: #363636;
+$text-dark: #c2c2c2;
+$text-dark-light: #e7e7e7;
 
 // // Update some of Bulma's component variables
 
-// $control-border-width: 2px;
-// $input-background-color: $beige-lighter;
-// $input-border-color: transparent;
-// $input-shadow: none;
+$control-border-width: 2px;
+$input-background-color: $dark-bg;
+$input-border-color: transparent;
+$input-shadow: none;
+$input-color: $text-dark-light;
+$input-focus-border-color: none;
+$input-focus-box-shadow-color: none;
+$input-icon-active-color: hsl(0, 0%, 86%);
 
 body {
   min-height: 100vh;
 }
 
-@import "~bulma/bulma"
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-
+@import '~bulma/bulma';

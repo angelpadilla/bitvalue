@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="has-background-black-bis">
     <!-- Default component -->
     <AppHeader />
 
@@ -27,13 +27,19 @@ export default {
 </script>
 
 <style lang="scss">
+// $dark: #121212;
+
 body {
-  background: hsl(0, 0%, 96%);
+  // background: $dark;
 }
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+input {
+  border-color: transparent !important;
 }
 </style>

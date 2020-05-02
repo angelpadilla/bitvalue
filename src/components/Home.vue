@@ -1,5 +1,5 @@
 <template>
-  <div class="has-background-light">
+  <div>
     <section class="one"></section>
 
     <section class="two">
@@ -67,17 +67,17 @@
 </template>
 
 <script>
-import Crypto from "@/axios/coincap";
-import mixins from "../mixins";
+import Crypto from '@/axios/coincap';
+import mixins from '../mixins';
 
 export default {
-  name: "",
+  name: '',
   mixins: [mixins],
   data() {
     return {
       assets: [],
       timestamp: null,
-      search: "",
+      search: '',
     };
   },
   mounted() {
@@ -88,7 +88,7 @@ export default {
       this.timestamp = Date.now();
     });
 
-    const pricesWs = new WebSocket("wss://ws.coincap.io/prices?assets=ALL");
+    const pricesWs = new WebSocket('wss://ws.coincap.io/prices?assets=ALL');
 
     pricesWs.onmessage = (msg) => {
       // returns an object
@@ -120,7 +120,7 @@ export default {
 
 <style lang="scss" scoped>
 table {
-  box-shadow: 0px 2px 12px #d0d0d0;
+  // box-shadow: 0px 2px 12px #d0d0d0;
   thead {
     background: #f5f5f5;
     tr {
@@ -162,11 +162,7 @@ table {
 }
 .one {
   padding: 1rem 0 13rem 0;
-  background: linear-gradient(
-    180deg,
-    rgba(98, 223, 67, 1) 0%,
-    rgba(207, 255, 0, 1) 83%
-  );
+  
 }
 
 .two {
