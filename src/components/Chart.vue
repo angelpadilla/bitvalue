@@ -1,49 +1,77 @@
 <template>
   <div>
-    <canvas id="crypto-chart" width="100%" height="100"></canvas>
+    <canvas id="crypto-chart" height="300"></canvas>
   </div>
 </template>
 
 <script>
   import Chart from 'chart.js';
   export default {
-    props: {},
+    props: {
+      symbol: {
+        type: String,
+        required: true
+      },
+      chartData: {
+        type: Array,
+        required: true
+      }
+    },
     data() {
-      return {}
+      return {
+        transformed: []
+      }
     },
     mounted() {
-      // console.log(chartData)
-      this.createChart('crypto-chart');
+      this.createChart('crypto-chart', this.chartData);
     },
     methods: {
-      createChart(chartId) {
-        const ctx = document.getElementById(chartId);
+      transformData (dataa) {
+        for (const iterator of dataa) {
+          this.transformed.push({x: iterator['time'], y: iterator['priceUsd']})
+        }
+      },
+      async createChart(chartId, dataa) {
+        await this.transformData(dataa);
 
+        const ctx = document.getElementById(chartId);
+    
         new Chart(ctx, {
-          type: 'line',
+          type: 'scatter',
           data: {
-            labels: ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'],
-            datasets:[{
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)',
-                  
-              ],
-              borderColor: [
-                  'rgba(255, 99, 132, 1)',
-              ],
-              borderWidth: 1
+            datasets: [{
+                label: this.symbol,
+                data: this.transformed,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 0.2)',
+                // borderWidth: 2,
+                // lineTension: 0.2,
             }]
           },
           options: {
             scales: {
+              xAxes: [{
+                type: 'time',
+                position: 'bottom',
+                time: {
+                  unit: 'month',
+                }
+              }],
               yAxes: [{
-                  ticks: {
-                      beginAtZero: true
+                position: 'right',
+                ticks: {
+                  beginAtZero: true,
+                  callback: function(value) {
+                    if(parseInt(value) >= 1000){
+                      return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    } else {
+                      return '$' + value;
+                    }
                   }
+                }
               }]
             }
-          },
+          }
         });
       }
     },
@@ -51,4 +79,9 @@
 </script>
 
 <style lang='scss' scoped>
+  canvas {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+  }
 </style>

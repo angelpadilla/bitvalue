@@ -55,11 +55,17 @@
                   </div>
                 </div>
                 
-                <Chart />
               </div>
               
             </div>
           </article>
+
+
+          <Chart 
+            v-if="chartData.length > 0"
+            :symbol="symbol"
+            :chartData="chartData"
+          />
         </div>
         <div v-else class="has-text-centered">
           <i class="fas fa-circle-notch fa-spin" style="color: white"></i>
@@ -77,7 +83,10 @@ import Chart from "./Chart";
 
 export default {
   props: {
-    currency: String,
+    currency: {
+      type: String,
+      required: true
+    },
   },
   components: {
     Chart
@@ -93,17 +102,17 @@ export default {
       symbol: '',
       volumeUsd24Hr: '',
       vwap24Hr: '',
+      chartData: [],
       fullLoaded: false
     };
   },
   created() {},
   mounted() {
-    console.log(this.currency);
     axios
       .get(`https://api.coincap.io/v2/assets/${this.currency}`)
       // eslint-disable-next-line no-unused-vars
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         this.changePercent24Hr = res.data.data.changePercent24Hr
         this.marketCapUsd = res.data.data.marketCapUsd
         this.name = res.data.data.name
@@ -122,7 +131,7 @@ export default {
         `https://api.coincap.io/v2/assets/${this.currency}/history?interval=d1`
       )
       .then((res) => {
-        console.log(res.data.data);
+        this.chartData = res.data.data
         // this.assets = res.data.data
         // this.timestamp = Date.now()
       });
