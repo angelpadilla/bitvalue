@@ -53,10 +53,7 @@
 import Crypto from "@/axios/coincap";
 import mixins from "../mixins";
 export default {
-  name: "",
-  props: {},
   mixins: [mixins],
-  components: {},
   data() {
     return {
       rates: [],
@@ -64,7 +61,6 @@ export default {
       search: "",
     };
   },
-  created() {},
   mounted() {
     this.update_rates();
   },
@@ -115,15 +111,15 @@ table {
 }
 
 .one {
-  padding: 6rem 0 8rem 0;
+  padding: 1rem 0 13rem 0;
   
 }
 
 .two {
-  padding-bottom: 4rem;
+  padding-bottom: 20rem;
   // background: #ECEFF2;
   .container {
-    margin-top: -10rem;
+    margin-top: -12rem;
   }
 }
 </style>

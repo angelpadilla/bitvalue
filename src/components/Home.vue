@@ -1,10 +1,18 @@
 <template>
   <div>
+    <div
+      class="task-modal"
+      v-if="isOpen"
+      
+    >
+      <router-view/>
+    </div>
+
+
     <section class="one"></section>
 
     <section class="two">
       <div class="container">
-        <p class="date">Última actualización {{ get_date(timestamp) }} Hrs</p>
         <div class="">
           <p class="control has-icons-left">
             <input
@@ -53,9 +61,11 @@
                   class="change has-text-primary"
                 >
                   {{ asset.changePercent24Hr | format_number }}%
+                  <i class="fas fa-sort-up"></i>
                 </span>
                 <span v-else class="change has-text-danger">
                   {{ asset.changePercent24Hr | format_number }}%
+                  <i class="fas fa-sort-down"></i>
                 </span>
               </td>
             </tr>
@@ -71,7 +81,6 @@ import Crypto from '@/axios/coincap';
 import mixins from '../mixins';
 
 export default {
-  name: '',
   mixins: [mixins],
   data() {
     return {
@@ -114,6 +123,9 @@ export default {
         return asset.name.toLowerCase().includes(this.search.toLowerCase());
       });
     },
+    isOpen () {
+      return this.$route.name === 'Singlecrypto'
+    }
   },
 };
 </script>
@@ -157,16 +169,13 @@ table {
   }
 }
 
-.date {
-  padding: 1rem;
-}
 .one {
   padding: 1rem 0 13rem 0;
   
 }
 
 .two {
-  padding-bottom: 4rem;
+  padding-bottom: 20rem;
   // background: #ECEFF2;
   .container {
     margin-top: -12rem;

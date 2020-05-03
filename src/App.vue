@@ -5,16 +5,20 @@
 
     <!-- Components from router -->
     <router-view />
+
+    <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import AppHeader from "@/components/Header.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   components: {
     AppHeader,
+    Footer
   },
   methods: {
     get_date(val) {

@@ -3,9 +3,13 @@
     <nav class="navbar is-dark is-fixed-top" role="navigation" aria-label="main navigation">
         <div class="container">
           <div class="navbar-brand">
-            <a class="navbar-item" href="/" title="Inicio">
-              <img src="../assets/logo.png" />
-            </a>
+            <router-link
+              :to="{ name: 'Home' }"
+              class="navbar-item"
+              title="Inicio"
+              >
+                <img src="../assets/logo.png" />
+            </router-link>
 
             <a
               role="button"
@@ -38,7 +42,7 @@
                   >Tipos de cambio</router-link
                 >
 
-                <div class="navbar-item has-dropdown is-hoverable">
+                <div v-if="false" class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link">
                     Más
                   </a>
@@ -140,6 +144,7 @@ $text-dark-light: #e7e7e7;
 .navbar {
  a {
    color: $text-dark !important;
+   font-size: 0.8rem;
    &:hover {
     color: $text-dark-light !important;
     background: none !important;

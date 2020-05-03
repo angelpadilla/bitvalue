@@ -7,7 +7,15 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../components/Home.vue')
+    component: () => import('../components/Home.vue'),
+    children: [
+      {
+        path: 'crypto/:currency',
+        name: 'Singlecrypto',
+        props: true,
+        component: () => import('../components/Singlecrypto.vue')
+      }
+    ]
   },
   {
     path: '/about',
@@ -18,12 +26,6 @@ const routes = [
     path: '/rates',
     name: 'Rates',
     component: () => import('../components/Rates.vue')
-  },
-  {
-    path: '/crypto/:currency',
-    name: 'Singlecrypto',
-    props: true,
-    component: () => import('../components/Singlecrypto.vue')
   },
   {path: '*', redirect: '/'}
 ]
