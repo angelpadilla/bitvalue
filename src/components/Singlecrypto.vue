@@ -24,11 +24,11 @@
                     #{{rank}}
                   </div>
                   <div class="column">
-                    <strong v-if="changePercent24Hr >= 0" class="has-text-primary">
+                    <strong v-if="changePercent24Hr >= 0" class="has-text-primary" title="Change (24hr)" >
                       {{ changePercent24Hr | format_number }}%
                       <i class="fas fa-sort-up"></i>
                     </strong>
-                    <strong v-else class="has-text-danger">
+                    <strong v-else class="has-text-danger" title="Change (24hr)">
                       {{ changePercent24Hr | format_number }}%
                       <i class="fas fa-sort-down"></i>
                     </strong>

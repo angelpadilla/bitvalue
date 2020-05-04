@@ -23,22 +23,27 @@
         <table class="table is-hoverable is-fullwidth">
           <thead>
             <tr>
-              <th>Moneda</th>
-              <th class="has-text-right">Dolar a moneda local</th>
+              <th>Coin</th>
+              <th class="has-text-right">Rate USD</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="rate in filteredList" :key="rate.id">
               <td>
                 <p>
-                  <span class="has-text-info">{{ rate.currencySymbol }}</span>
-                  {{ rate.id | format_string_to_uppcercase }}<br />
-                  <span>{{ rate.symbol }}</span>
+                  {{ rate.id | format_string_to_uppcercase }} <br>
+                  <span>{{ rate.symbol }}</span> <br>
                 </p>
               </td>
               <td class="has-text-right">
-                <p>
+                <p v-if="false">
+                  <!-- usd to coin -->
                   {{ Number.parseFloat(1 / rate.rateUsd).toFixed(4) }}
+                </p>
+
+                <p>
+                  <!-- coin to usd -->
+                  {{ Number.parseFloat(rate.rateUsd).toFixed(4) }}
                 </p>
               </td>
             </tr>

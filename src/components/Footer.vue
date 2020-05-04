@@ -3,7 +3,7 @@
     <div class="container">
       <p>
         <strong>Bitvalue</strong> by
-        <a href="http://magmalab.xyz/">Angel Padilla</a>
+        <a href="#!">Angel Padilla</a>
       </p>
     </div>
   </section>

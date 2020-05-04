@@ -6,7 +6,7 @@
             <router-link
               :to="{ name: 'Home' }"
               class="navbar-item"
-              title="Inicio"
+              title="Home"
               >
                 <img src="../assets/logo.png" />
             </router-link>
@@ -36,20 +36,20 @@
                   :to="{ name: 'Home' }"
                   class="navbar-item"
                   :class="{ 'is-active': this.$route.name == 'Home' }"
-                  >Criptomonedas</router-link
+                  >Cryptocurrencies</router-link
                 >
                 <router-link :to="{ name: 'Rates' }" class="navbar-item" :class="{ 'is-active': this.$route.name == 'Rates' }"
-                  >Tipos de cambio</router-link
+                  >Rates</router-link
                 >
 
                 <div v-if="false" class="navbar-item has-dropdown is-hoverable">
                   <a class="navbar-link">
-                    Más
+                    More
                   </a>
 
                   <div class="navbar-dropdown">
                     <a class="navbar-item">
-                      Contacto
+                      Contact
                     </a>
                   </div>
                 </div>
@@ -59,7 +59,7 @@
                 <div class="navbar-item" v-if="false">
                   <div class="buttons">
                     <a class="button is-primary">
-                      <strong>Acceso</strong>
+                      <strong>Access</strong>
                     </a>
                   </div>
                 </div>

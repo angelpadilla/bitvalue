@@ -30,8 +30,8 @@
         <table class="table is-hoverable is-fullwidth">
           <thead>
             <tr>
-              <th>Nombre</th>
-              <th class="has-text-right">Precio USD</th>
+              <th>Name</th>
+              <th class="has-text-right">Price USD</th>
             </tr>
           </thead>
           <tbody>
